@@ -1,0 +1,81 @@
+/* Common styles for Login and Signup pages */
+
+body {
+    font-family: 'Lora', serif;
+    color: #333;
+    display: flex;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('../../images/plant_bg_login.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    background-color: rgba(152, 175, 147, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+h1 {
+    color: #0c341e;
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+    background-color: #2e8b57;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #276749;
+}
+
+.footer {
+    margin-top: 15px;
+}
+
+.footer a {
+    color: #145a32;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
