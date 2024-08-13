@@ -1,0 +1,95 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
+
+.home-1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  color: #4a4a4a;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.topbar-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  background-color: #000000;
+}
+
+.logo img {
+  height: 60px; 
+}
+
+.icons-1 img {
+  width: 35px; 
+  margin-left: 20px; 
+  cursor: pointer; 
+}
+
+.search-bar-1 input {
+  border: 2px solid #aba8a8;
+  padding: 10px 20px;
+  border-radius: 30px; 
+  width: 100%; 
+  max-width: 400px; 
+}
+
+
+.content-1 {
+  display: flex;
+  flex-grow: 1; 
+  padding: 20px;
+  gap: 20px; 
+  background: linear-gradient(to left, #d1cfcf,#cde3ac, #fffefe);
+} 
+
+
+.sidebar-1 {
+  width: 250px;
+}
+
+.sidebar-1 ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-1 li {
+  margin-bottom: 15px; 
+  font-size: 18px; 
+} 
+
+.sidebar-1 li a {
+  color: #333; 
+  text-decoration: none; 
+}
+
+.sidebar-1 li a:hover {
+  color: #007bff;
+} 
+
+.sidebar-1 img{
+  height: 50px;
+  width: 50px;
+}
+
+.posts-1, .rightbar-1 {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.post, .forum {
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px; 
+}
+
+h2, h3 {
+  color: #222;
+}
