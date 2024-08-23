@@ -7,23 +7,58 @@ html, body {
 
 .home-1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-  color: #4a4a4a;
+  /* color: #4a4a4a; */
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
+
 
 .topbar-1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px 30px;
-  background-color: #000000;
+  background-color: #fff;
 }
 
 .logo img {
-  height: 60px; 
+  height: 40px; 
 }
+
+.icons-1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icon-item {
+  text-align: center; /* Centers the text and image inside each icon-item */
+  margin: 0 10px; /* Adds space between the icons */
+}
+
+.icon-item img {
+  display: block;
+  margin: 0 auto 8px; /* Centers the image and adds space below it */
+}
+
+.icon-item a {
+  display: block;
+  text-decoration: none;
+  color: #4a4a4a; /* Ensures the link color matches the theme */
+}
+
+.icon-item  a:hover{
+  color: #007bff;
+}
+
+.logo img {
+  display: block;
+  margin: 0 auto; /* Centers the logo horizontally */
+  height: 40px; /* Keeps a consistent height for the logo */
+}
+
+
 
 .icons-1 img {
   width: 35px; 
@@ -31,8 +66,13 @@ html, body {
   cursor: pointer; 
 }
 
+
+.search-bar-1{
+  border-radius:2px solid #4f4e4e;
+}
+
 .search-bar-1 input {
-  border: 2px solid #aba8a8;
+  border: 2px solid #2c2a2a;
   padding: 10px 20px;
   border-radius: 30px; 
   width: 100%; 
@@ -43,19 +83,19 @@ html, body {
 .content-1 {
   display: flex;
   flex-grow: 1; 
-  padding: 20px;
+  /* padding: 20px; */
   gap: 20px; 
-  background: linear-gradient(to left, #d1cfcf,#cde3ac, #fffefe);
 } 
 
 
 .sidebar-1 {
+  background-color: #C0E6BA;
   width: 250px;
 }
 
 .sidebar-1 ul {
   list-style: none;
-  padding: 0;
+  padding: 10px;
 }
 
 .sidebar-1 li {
@@ -83,8 +123,10 @@ html, body {
 }
 
 .post, .forum {
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
+  background-color: #EAF9E7 ;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* background: linear-gradient(to right,#ffffff,#a5ffdb); */
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 10px; 
@@ -92,4 +134,9 @@ html, body {
 
 h2, h3 {
   color: #222;
+}
+
+
+.mainpage-1{
+  display: flex;
 }

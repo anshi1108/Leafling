@@ -16,17 +16,26 @@ function Home() {
                 <div className="logo">
                     <img src={logo} alt="Logo" />
                 </div>
+                <div className='icons-1'>
+                    <div className="icon-item">
+                        <img src={profile_photo} alt="Profile" />
+                        <Link to='#'>My Profile</Link>
+                    </div>
+                    <div className="icon-item">
+                        <img src={shopping_cart} alt="Marketplace" />
+                        <Link to='/marketplace'>My MarketPlace</Link>
+                    </div>
+                    <div className="icon-item">
+                        <img src={notification} alt="Notification" />
+                        <Link to='#'>Notification</Link>
+                    </div>
+                </div>
                 <div className="search-bar-1">
                     <input type="text" placeholder="Search..."/>
                 </div>
-                <div className="icons-1">
-                    <img src={shopping_cart} alt="Marketplace"/>
-                    <img src={notification} alt="Notifications"/>
-                    <img src={profile_photo} alt="Profile"/>
-                </div>
             </div>
-            <div className="content-1">
-                <div className="sidebar-1">
+            <div className="mainpage-1">
+            <div className="sidebar-1">
                     <ul>
                         <li><img src={profile_photo} alt="Profile"/><Link to="#">My profile</Link></li>
                         <li><img src={shopping_cart} alt="Marketplace"/><Link to="/marketplace">Marketplace</Link></li>
@@ -36,6 +45,8 @@ function Home() {
                         <li><img src={plus} alt="Post"/><Link to="#">Post</Link></li>
                     </ul>
                 </div>
+            
+            <div className="content-1">
                 <div className="posts-1">
                     {Array.from({ length: 8 }).map((_, index) => (
                         <div className="post" key={index}>
@@ -53,6 +64,7 @@ function Home() {
                         </div>
                     ))}
                 </div>
+            </div>
             </div>
         </div>
     );

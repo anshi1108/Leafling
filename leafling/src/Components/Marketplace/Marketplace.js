@@ -10,6 +10,7 @@ import seeds from '../../images/seed.png';
 import pots from '../../images/pots.png';
 import fertilizers from '../../images/fertilizer.png';
 import accessories from '../../images/farming-tools.png';
+import { Link } from 'react-router-dom';
 
 function Marketplace() {
   const [products, setProducts] = useState([]);
@@ -65,22 +66,14 @@ function Marketplace() {
 
   return (
     <div className="marketplace">
-      <div className="topbar-2">
-        <div className="logo">
-          <img src={logo} alt="logo" />
-        </div>
-        <div className="search-bar-2">
-          <input type="text" placeholder="Search..." />
-        </div>
-        <div className="icons-2">
-          <img src={shopping_cart} alt="Marketplace" title="Marketplace" />
-          <img src={notification} alt="Notifications" title="Notifications" />
-          <img src={profile_photo} alt="Profile" title="Profile" />
-        </div>
-      </div>
-
-      <div className="content-2">
+      <div className="mainpage-2">
         <div className="sidebar-2">
+        <div className="logo">
+              <Link to='/home'>
+              <img src={logo} alt="logo" />
+              </Link>
+          </div>
+          <hr />
           <ul>
             <li><img src={offers} alt="Offers" title="Offers" /><a href="#">Offers</a></li>
             <li><img src={gardening} alt="Gardening" title="Gardening" /><a href="#">Gardening</a></li>
@@ -90,28 +83,40 @@ function Marketplace() {
             <li><img src={accessories} alt="Accessories" title="Accessories" /><a href="#">Accessories</a></li>
           </ul>
         </div>
-
-        <div className="main-2">
-          <h1>Marketplace</h1>
-          <div className="product-list">
-            {products.length > 0 ? (
-              products.map(product => (
-                <div key={product.id} className="product-card" onClick={() => handleProductClick(product)}>
-                  <img src={product.image} alt={product.name} className="product-image" />
-                  <div className="product-info">
-                    <h2 className="product-name">{product.name}</h2>
-                    <p className="product-price">${product.price.toFixed(2)}</p>
-                    <p className="product-rating">Rating: {product.rating}</p>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p>No products available</p>
-            )}
+        <div className="content-container">
+          <div className="topbar-2">
+            <div className="search-bar-2">
+              <input type="text" placeholder="Search..." />
+            </div>
+            <div className="icons-2">
+              <img src={shopping_cart} alt="Marketplace" title="Marketplace" />
+              <img src={notification} alt="Notifications" title="Notifications" />
+              <img src={profile_photo} alt="Profile" title="Profile" />
+            </div>
+          </div>
+          <div className="content-2">
+            <div className="main-2">
+              <h1>Marketplace</h1>
+              <div className="product-list">
+                {products.length > 0 ? (
+                  products.map(product => (
+                    <div key={product.id} className="product-card" onClick={() => handleProductClick(product)}>
+                      <img src={product.image} alt={product.name} className="product-image" />
+                      <div className="product-info">
+                        <h2 className="product-name">{product.name}</h2>
+                        <p className="product-price">${product.price.toFixed(2)}</p>
+                        <p className="product-rating">Rating: {product.rating}</p>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p>No products available</p>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
       {selectedProduct && (
         <div className="product-detail">
           <button className="close-button" onClick={handleCloseDetail}>X</button>
