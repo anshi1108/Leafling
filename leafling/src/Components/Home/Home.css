@@ -20,9 +20,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10px;
+  padding-top: 30px;
   padding-right: 30px;
   padding-left: 30px;
+  padding-bottom: 20px;
   background-color: rgb(21, 61, 21);
   position: fixed;
   width: 100%;
