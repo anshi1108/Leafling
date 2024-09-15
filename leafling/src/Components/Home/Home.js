@@ -30,7 +30,22 @@ function Home() {
             username: 'planter123',
             image: 'https://i.insider.com/626beed9c8c8ac0019410d59?width=1136&format=jpeg',
             caption: 'Garden time is my favorite time! #gardening #plantlife'
-        }
+        },
+        {
+            username: 'greenfingers',
+            image: 'https://www.gardenersworld.com/wp-content/uploads/2020/06/planting-flowering-plants-in-garden.jpg',
+            caption: 'A splash of color in my garden today! #gardening #greenfingers'
+        },
+        {
+            username: 'urbangardenlife',
+            image: 'https://www.outdoorhappens.com/wp-content/uploads/urban-backyard-garden-ideas.jpg',
+            caption: 'Urban gardening at its finest! #gardening #urbangardening'
+        },
+        {
+            username: 'natureenthusiast',
+            image: 'https://cdn.mos.cms.futurecdn.net/8dqUibJzoPQAXWfDbK7KjM.jpg',
+            caption: 'Enjoying the serenity of my garden. #gardening #naturelover'
+        },
     ];
 
     // Sample forum data
@@ -97,7 +112,7 @@ function Home() {
                     <ul>
                         <li><img src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png" alt="Profile" /><Link to="/profile">My profile</Link></li>
                         <li><img src={shopping_cart} alt="Marketplace" /><Link to="/marketplace">Marketplace</Link></li>
-                        <li><img src={open_book} alt="Guide" /><Link to="#">Learner's guide</Link></li>
+                        <li><img src={open_book} alt="Guide" /><Link to="/guide">Learner's guide</Link></li>
                         <li><img src={notification} alt="Notifications" /><Link to="/notifications">Notifications</Link></li>
                         <li>
                             <div className="chatbot-trigger" onClick={() => setShowChatbot(true)}>
