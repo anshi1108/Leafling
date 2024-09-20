@@ -1,27 +1,33 @@
 .forum-card {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 10px;
     display: flex;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.forum-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 15px;
+.forum-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 10px;
 }
 
-.forum-details h3 {
+.forum-info {
+    flex: 1;
+}
+
+.forum-info h3 {
     margin: 0;
-    font-size: 16px;
+    font-size: 18px;
 }
 
-.forum-details p {
-    margin: 0;
-    font-size: 14px;
-    color: #666;
+.forum-info p {
+    margin: 5px 0 0;
+    color: #555;
 }
