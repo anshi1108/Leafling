@@ -1,11 +1,14 @@
-// server.js
-
+// backend/server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const path = require('path');
+
+// Import routes
+const postRoutes = require('./routes/posts.js');
 
 // Constants
 const PORT = process.env.PORT || 5000;
@@ -14,7 +17,11 @@ const JWT_SECRET = 'loginme'; // Change this to a secure secret in production
 // Initialize Express app
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000', // Replace with your React app URL
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://sadneyasam05:root@cluster0.7gxwyxh.mongodb.net/mydatabase', {
@@ -48,8 +55,6 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const path = require('path');
-
 // Email Verification Route
 app.get('/api/users/verify/:token', async (req, res) => {
   const { token } = req.params;
@@ -67,35 +72,7 @@ app.get('/api/users/verify/:token', async (req, res) => {
     user.verificationToken = null;
     await user.save();
 
-    // Serve the verification success HTML file
     res.sendFile(path.join(__dirname, 'public', 'verification-success.html'));
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Email verification failed' });
-  }
-});
-
-  
-
-// Email Verification Route
-app.get('/api/users/verify/:token', async (req, res) => {
-  const { token } = req.params;
-
-  try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    const { email } = decoded;
-
-    const user = await User.findOne({ email, verificationToken: token });
-    if (!user) {
-      return res.status(400).json({ error: 'Invalid or expired verification token' });
-    }
-
-    user.isVerified = true;
-    user.verificationToken = null;
-    await user.save();
-
-    // Redirect to info page or confirmation page after verification
-    res.redirect('/info'); // Replace with your frontend URL if necessary
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Email verification failed' });
@@ -147,6 +124,9 @@ app.post('/api/users/login', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while logging in' });
   }
 });
+
+// Use post routes
+app.use('/api/posts', postRoutes);
 
 // Start server
 app.listen(PORT, () => {
