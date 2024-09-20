@@ -1,86 +1,69 @@
-import React, { useState } from 'react';
-import './Home.css';
+// src/Components/Home/Home.js
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './Home.css';
 import shopping_cart from '../../images/shopping-cart.png';
 import notification from '../../images/notification.png';
 import open_book from '../../images/open-book.png';
 import chatbot from '../../images/chatbot.png';
 import plus from '../../images/plus.png';
-import PostCard from './Postcard'; // Import the PostCard component
-import ForumCard from './Forumcard'; // Import a ForumCard component
-import Chatbot from '../ChatBot/Chatbot'; // Import the Chatbot component
+import PostCard from './Postcard';  // Ensure Postcard is updated and properly imported
+import Forumcard from './Forumcard';
+
+// Define forum data
+const forums = [
+    { name: 'Cactus Care', image: 'https://www.juneflowers.com/wp-content/uploads/2022/08/Cactus-Plant.jpg', description: 'Learn the best practices for taking care of your cacti!', route: '/forum/cactus-care' },
+    { name: 'Succulent Enthusiasts', image: 'https://www.bhimtalnursery.com/wp-content/uploads/2022/12/Echeveria-Desmetiana-Succulent-Plant-1.jpg', description: 'Join the community of succulent lovers!', route: '/forum/succulent-enthusiasts' },
+    { name: 'Herb Gardeners', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ0Jj4oOQd04s-Jrd1HSTzIojBD526bB7JrQ&s', description: 'Grow your own herbs and share your experiences.', route: '/forum/herb-gardeners' },
+    { name: 'Flower Power', image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?cs=srgb&dl=pexels-jonaskakaroto-736230.jpg&fm=jpg', description: 'All about growing and caring for flowers.', route: '/forum/flower-power' },
+    { name: 'Urban Gardening', image: 'https://plantly.io/wp-content/uploads/2023/12/3287b5aa-dbdf-4452-9d72-4b395be4cafa.jpg', description: 'Tips and tricks for gardening in urban areas.', route: '/forum/urban-gardening' },
+    { name: 'Vegetable Growers', image: 'https://grangettos.com/cdn/shop/articles/shutterstock_590135870_1600x.jpg?v=1617921748', description: 'Share your journey of growing vegetables.', route: '/forum/vegetable-growers' }
+];
 
 function Home() {
-    // State for managing chatbot popup visibility
-    const [showChatbot, setShowChatbot] = useState(false);
+    // State to manage posts and modal visibility
+    const [posts, setPosts] = useState([]);
+    const [isCreatePostVisible, setIsCreatePostVisible] = useState(false);
+    const [formData, setFormData] = useState({ image: '', text: '' });
 
-    // Sample post data
-    const posts = [
-        {
-            username: 'user123',
-            image: 'https://harddy.com/cdn/shop/articles/Gardening_with_Family_9eced38f-b650-4b68-80e3-6ad9826cf1d0_1200x1200.jpg?v=1576111862',
-            caption: 'Gardening with the family! #gardening #family'
-        },
-        {
-            username: 'plantlover',
-            image: 'https://hips.hearstapps.com/hmg-prod/images/proud-gardener-royalty-free-image-539829042-1555499812.jpg',
-            caption: 'I love gardening! #gardening #plantlover'
-        },
-        {
-            username: 'planter123',
-            image: 'https://i.insider.com/626beed9c8c8ac0019410d59?width=1136&format=jpeg',
-            caption: 'Garden time is my favorite time! #gardening #plantlife'
-        },
-        {
-            username: 'greenfingers',
-            image: 'https://www.gardenersworld.com/wp-content/uploads/2020/06/planting-flowering-plants-in-garden.jpg',
-            caption: 'A splash of color in my garden today! #gardening #greenfingers'
-        },
-        {
-            username: 'urbangardenlife',
-            image: 'https://www.outdoorhappens.com/wp-content/uploads/urban-backyard-garden-ideas.jpg',
-            caption: 'Urban gardening at its finest! #gardening #urbangardening'
-        },
-        {
-            username: 'natureenthusiast',
-            image: 'https://cdn.mos.cms.futurecdn.net/8dqUibJzoPQAXWfDbK7KjM.jpg',
-            caption: 'Enjoying the serenity of my garden. #gardening #naturelover'
-        },
-    ];
+    // Fetch posts from the backend
+    useEffect(() => {
+        fetch('/api/posts')  // Adjusted path to match backend routes
+            .then(response => response.json())
+            .then(data => setPosts(data))
+            .catch(error => console.error('Error fetching posts:', error));
+    }, []);
 
-    // Sample forum data
-    const forums = [
-        {
-            name: 'Cactus Care',
-            image: 'https://www.juneflowers.com/wp-content/uploads/2022/08/Cactus-Plant.jpg',
-            description: 'Learn the best practices for taking care of your cacti!'
-        },
-        {
-            name: 'Succulent Enthusiasts',
-            image: 'https://www.bhimtalnursery.com/wp-content/uploads/2022/12/Echeveria-Desmetiana-Succulent-Plant-1.jpg',
-            description: 'Join the community of succulent lovers!'
-        },
-        {
-            name: 'Herb Gardeners',
-            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ0Jj4oOQd04s-Jrd1HSTzIojBD526bB7JrQ&s',
-            description: 'Grow your own herbs and share your experiences.'
-        },
-        {
-            name: 'Flower Power',
-            image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?cs=srgb&dl=pexels-jonaskakaroto-736230.jpg&fm=jpg',
-            description: 'All about growing and caring for flowers.'
-        },
-        {
-            name: 'Urban Gardening',
-            image: 'https://plantly.io/wp-content/uploads/2023/12/3287b5aa-dbdf-4452-9d72-4b395be4cafa.jpg',
-            description: 'Tips and tricks for gardening in urban areas.'
-        },
-        {
-            name: 'Vegetable Growers',
-            image: 'https://grangettos.com/cdn/shop/articles/shutterstock_590135870_1600x.jpg?v=1617921748',
-            description: 'Share your journey of growing vegetables.'
-        }
-    ];
+    // Toggle Create Post modal
+    const openCreatePostModal = () => {
+        setIsCreatePostVisible(!isCreatePostVisible);
+    };
+
+    // Handle form input changes
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({ ...prevState, [name]: value }));
+    };
+
+    // Handle form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const userId = 'your-user-id'; // Replace with actual user ID
+        const { image, text } = formData;
+
+        fetch('/api/posts', {  // Adjusted path to match backend routes
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId, image, text })
+        })
+        .then(response => response.json())
+        .then(newPost => {
+            setPosts(prevPosts => [newPost, ...prevPosts]); // Add new post to the list
+            setFormData({ image: '', text: '' }); // Clear form
+            openCreatePostModal(); // Close modal
+        })
+        .catch(error => console.error('Error creating post:', error));
+    };
 
     return (
         <div className='home-1'>
@@ -91,7 +74,7 @@ function Home() {
                 <Link to='/'><strong>Leafling</strong></Link>
                 <div className='icons-1'>
                     <div className="icon-item">
-                        <img src="https://pngimg.com/d/shopping_cart_PNG4.png" alt="Marketplace" />
+                        <img src={shopping_cart} alt="Marketplace" />
                         <Link to='/marketplace'></Link>
                     </div>
                     <div className="icon-item">
@@ -114,47 +97,58 @@ function Home() {
                         <li><img src={shopping_cart} alt="Marketplace" /><Link to="/marketplace">Marketplace</Link></li>
                         <li><img src={open_book} alt="Guide" /><Link to="/guide">Learner's guide</Link></li>
                         <li><img src={notification} alt="Notifications" /><Link to="/notifications">Notifications</Link></li>
-                        <li>
-                            <div className="chatbot-trigger" onClick={() => setShowChatbot(true)}>
-                                <img src={chatbot} alt="Chatbot" />
-                                <span>AI Chatbot</span>
-                            </div>
-                        </li>
-                        <li><img src={plus} alt="Post" /><Link to="#">Post</Link></li>
+                        <li><img src={chatbot} alt="Chatbot" /><Link to="#">AI chatbot</Link></li>
+                        <li><img src={plus} alt="Create Post" /><Link to="#" onClick={openCreatePostModal}>Create Post</Link></li>
                     </ul>
                 </div>
 
                 <div className="content-1">
                     <div className="posts-1">
-                        {posts.map((post, index) => (
+                        {posts.map(post => (
                             <PostCard
-                                key={index}
-                                username={post.username}
-                                image={post.image}
-                                caption={post.caption}
+                                key={post._id}
+                                post={post}
                             />
                         ))}
                     </div>
                     <div className="rightbar-1">
                         <h2>Find your community!</h2>
                         {forums.map((forum, index) => (
-                            <ForumCard
+                            <Forumcard
                                 key={index}
                                 name={forum.name}
                                 image={forum.image}
                                 description={forum.description}
+                                route={forum.route}
                             />
                         ))}
                     </div>
                 </div>
             </div>
 
-            {/* Chatbot Popup */}
-            {showChatbot && (
-                <div className="chatbot-popup">
-                    <div className="chatbot-popup-content">
-                        <button className="chatbot-close-button" onClick={() => setShowChatbot(false)}>X</button>
-                        <Chatbot />
+            {isCreatePostVisible && (
+                <div className="modal-1">
+                    <div className="modal-content-1">
+                        <h2>Create a New Post</h2>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                name="image"
+                                placeholder="Image URL"
+                                value={formData.image}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <textarea
+                                name="text"
+                                placeholder="What's on your mind?"
+                                value={formData.text}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <button type="submit">Submit</button>
+                            <button type="button" onClick={openCreatePostModal}>Close</button>
+                        </form>
                     </div>
                 </div>
             )}
