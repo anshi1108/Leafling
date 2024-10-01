@@ -1,0 +1,28 @@
+/* src/components/ForumCard.css */
+.forum-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.forum-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.forum-info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.forum-info p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+}
