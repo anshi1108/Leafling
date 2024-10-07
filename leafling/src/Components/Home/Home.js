@@ -16,9 +16,18 @@ import axios from 'axios';
 function Home() {
     const [showChatbot, setShowChatbot] = useState(false);
     const [posts, setPosts] = useState([]);
-    const [forums, setForums] = useState([]); // Add this line to define forums state
 
-    // Fetch posts and forums when the component mounts
+    // Sample forums data
+    const forums = [
+        { name: 'Cactus Care', image: 'https://www.juneflowers.com/wp-content/uploads/2022/08/Cactus-Plant.jpg', description: 'Learn the best practices for taking care of your cacti!', route: '/forum/cactus-care' },
+        { name: 'Succulent Enthusiasts', image: 'https://www.bhimtalnursery.com/wp-content/uploads/2022/12/Echeveria-Desmetiana-Succulent-Plant-1.jpg', description: 'Join the community of succulent lovers!', route: '/forum/succulent-enthusiasts' },
+        { name: 'Herb Gardeners', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ0Jj4oOQd04s-Jrd1HSTzIojBD526bB7JrQ&s', description: 'Grow your own herbs and share your experiences.', route: '/forum/herb-gardeners' },
+        { name: 'Flower Power', image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?cs=srgb&dl=pexels-jonaskakaroto-736230.jpg&fm=jpg', description: 'All about growing and caring for flowers.', route: '/forum/flower-power' },
+        { name: 'Urban Gardening', image: 'https://plantly.io/wp-content/uploads/2023/12/3287b5aa-dbdf-4452-9d72-4b395be4cafa.jpg', description: 'Tips and tricks for gardening in urban areas.', route: '/forum/urban-gardening' },
+        { name: 'Vegetable Growers', image: 'https://grangettos.com/cdn/shop/articles/shutterstock_590135870_1600x.jpg?v=1617921748', description: 'Share your journey of growing vegetables.', route: '/forum/vegetable-growers' }
+    ];
+
+    // Fetch posts when the component mounts
     useEffect(() => {
         const fetchPosts = async () => {
             try {
@@ -29,17 +38,7 @@ function Home() {
             }
         };
 
-        const fetchForums = async () => { // Add a function to fetch forums
-            try {
-                const response = await axios.get('http://localhost:5000/api/forums'); // Adjust the URL to your API endpoint
-                setForums(response.data);
-            } catch (error) {
-                console.error('Error fetching forums:', error);
-            }
-        };
-
         fetchPosts();
-        fetchForums(); // Call the forums fetching function
     }, []);
 
     return (
@@ -55,7 +54,7 @@ function Home() {
                         <li>
                             <div className="chatbot-trigger" onClick={() => setShowChatbot(true)}>
                                 <img src={chatbot} alt="Chatbot" />
-                                <span>AI Chatbot</span>
+                                <span style={{ color: 'black' }}>AI Chatbot</span> {/* Change text color to black */}
                             </div>
                         </li>
                         <li><img src={plus} alt="Create Post" /><Link to="/create-post">Create Post</Link></li>
