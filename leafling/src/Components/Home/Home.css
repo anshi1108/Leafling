@@ -1,26 +1,44 @@
-/* General layout styling */
+/* General Page Styling */
 .home-1 {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 150vh; /* Full height of the viewport */
+  min-height: 100vh;
 }
 
+/* Main Page Styling */
 .mainpage-1 {
   display: flex;
   flex-grow: 1;
-  overflow: hidden; /* Prevent scrolling within the main content */
+  padding-top: 60px; /* Adjusted for topbar height */
+  overflow: hidden;
 }
 
+/* Sidebar Styling */
 .sidebar-1 {
-  width: 200px;
-  background-color: #f0f0f0;
+  min-width: 200px; /* Minimum width to maintain */
+  max-width: 20%; /* Dynamic width based on screen size */
+  background-color: #28a745; /* Green background */
   padding: 20px;
-  box-sizing: border-box;
+  color: white;
+  height: calc(100vh - 60px); /* Full height to ensure it extends to the end of the screen */
+  position: fixed; /* Fixed position */
+  top: 60px; /* Positioned below the topbar */
+  bottom: 0; /* Extend to bottom */
+  overflow: hidden; /* No scrolling */
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-1 ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
+  flex-grow: 1; /* Grow to fill available space */
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-1 li {
@@ -30,86 +48,135 @@
 }
 
 .sidebar-1 img {
-  width: 24px;
+  height: 24px;
+  margin-right: 10px; /* Spacing between icon and text */
+}
+
+.sidebar-1 a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Chatbot Trigger */
+.chatbot-trigger {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.chatbot-trigger img {
   height: 24px;
   margin-right: 10px;
 }
 
+.chatbot-trigger span {
+  color: black; /* Changed to black as requested */
+  font-weight: bold;
+}
+
+/* Content Area */
 .content-1 {
+  flex-grow: 1;
   display: flex;
-  flex-grow: 1;
+  margin-left: 0px; /* Match left sidebar width */
+  margin-right: 350px; /* Match right sidebar width */
   padding: 20px;
-  overflow-y: auto; /* Allow scrolling within the content area */
+  overflow-y: hidden; /* Hide scrollbar in content */
   box-sizing: border-box;
-  max-height: 100vh; /* Ensure it takes up available height */
 }
 
+/* Posts Section */
 .posts-1 {
-  flex-grow: 2;
-  padding-right: 20px;
+  flex-grow: 1; /* Take all available space */
+  padding: 20px; /* Add padding */
   overflow-y: auto; /* Allow scrolling within posts if needed */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
 
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.posts-1::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+/* Right Bar Styling */
 .rightbar-1 {
-  flex-grow: 1;
-  padding-left: 20px;
+  min-width: 250px; /* Reduced minimum width */
+  max-width: 20%; /* Adjusted dynamic width based on screen size */
   background-color: #fafafa;
+  padding: 20px;
+  border-left: 1px solid #ddd;
+  height: calc(100vh - 60px); /* Full height minus topbar */
+  overflow-y: auto; /* Enable vertical scrolling */
+  position: fixed;
+  right: 0;
+  top: 60px; /* Positioned below the topbar */
+  bottom: 0; /* Extend to bottom */
 }
 
-/* Ensure the footer is always at the bottom of the page */
-.footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  width: 100%;
-  position: sticky;
-  bottom: 0;
+.rightbar-1 h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Chatbot Popup Styling */
+.chatbot-popup {
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.add-post-section {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
+.chatbot-popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
 }
 
-.add-post-section h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+.chatbot-close-button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  float: right;
+  margin: -10px -10px 10px 0;
+  padding: 5px 10px;
+  color: #555;
 }
 
-.add-post-section input[type="file"] {
-    display: block;
-    margin-bottom: 10px;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mainpage-1 {
+    flex-direction: column;
+  }
 
-.add-post-section .image-preview {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.add-post-section input[type="text"] {
-    display: block;
+  .sidebar-1 {
     width: 100%;
-    margin-bottom: 10px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    height: auto;
+    position: relative;
+  }
 
-.add-post-section button {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+  .rightbar-1 {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-left: none;
+    margin-top: 20px;
+  }
 
-.add-post-section button:hover {
-    background-color: #218838;
+  .content-1 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .posts-1 {
+    margin-right: 0;
+  }
 }
