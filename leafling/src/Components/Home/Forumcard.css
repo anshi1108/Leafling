@@ -7,6 +7,9 @@
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
+    max-width: 300px;
+    height: 80px;
+    align-items: flex-start; /* Ensures content starts aligned from the top */
 }
 
 .forum-image img {
@@ -14,15 +17,26 @@
     height: 60px;
     border-radius: 50%;
     margin-right: 15px;
+    padding-top: 5px; /* Added padding to push the image slightly down */
+}
+
+.forum-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    text-align: left;
 }
 
 .forum-info h3 {
     margin: 0;
     font-size: 18px;
+    padding-top: 5px; /* Added slight padding to the top */
+    text-align: left;
 }
 
 .forum-info p {
     margin: 5px 0 0;
     font-size: 14px;
     color: #666;
+    padding-top: 2px; /* Slight padding for the paragraph as well */
 }
