@@ -1,0 +1,100 @@
+.home-container {
+  display: flex;
+  flex-direction: column; /* Stack Navbar and content vertically */
+}
+
+.content {
+  display: flex; /* Use flexbox for sidebar and main content */
+  flex-grow: 1; /* Allow content to grow */
+}
+
+.sidebar {
+  width: 250px; /* Fixed width for sidebar */
+  background-color: #f4f4f4; /* Optional background */
+  transition: transform 0.3s ease; /* Smooth transition for show/hide */
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%); /* Hide sidebar */
+}
+
+.main-content {
+  flex-grow: 1; /* Allow main content to take the remaining space */
+  padding: 20px; /* Space around the main content */
+}
+
+.carousel {
+  height: 800px; /* Height of the carousel */
+  margin: 5px 0 15px; /* Margin top and bottom */
+  width: 90%; /* Carousel width */
+  margin-left: 4.5vw; /* Left margin */
+  border-radius: 25px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow */
+}
+
+.carousel-inner img {
+  height: 800px; /* Set the height */
+  opacity: 0.7; /* Image opacity */
+  object-fit: cover; /* Ensure image covers area */
+  width: 100%; /* Full width */
+}
+
+.carousel-caption {
+  text-align: left; /* Align text to the left */
+  left: 5%; /* Adjust left positioning */
+}
+
+.carousel-caption h5 {
+  color: #000; /* Text color */
+  font-weight: bold; /* Bold text */
+  font-size: 60px; /* Optional: font size */
+}
+
+.carousel-caption p {
+  color: #000; /* Text color */
+  font-size: 35px; /* Font size */
+}
+
+.btn-connect {
+  background-color: #fff; /* Button background */
+  color: #000; /* Button text */
+  border: 1px solid #000; /* Button border */
+  padding: 0.5rem 1rem; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+}
+
+.btn-connect:hover {
+  background-color: #000; /* Hover background */
+  color: #fff; /* Hover text color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* src/components/Home/Home.css */
+/* src/components/Home/Home.css */
+
+.chatbot-popup {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    width: 500px; /* Set a width for the popup */
+    background-color: white; /* Background color */
+    border: 1px solid #ccc; /* Optional border */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for the popup */
+    z-index: 999; /* Ensure it's above other content */
+    border-radius: 20px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    padding: 20px; /* Optional padding inside the popup */
+  }
+  
+  .close-chatbot-button {
+    margin: 10px; /* Add some margin */
+    padding: 5px 10px; /* Padding for the button */
+    background-color: #f44336; /* Red background for close */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
