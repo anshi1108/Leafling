@@ -10,6 +10,7 @@ import Cactus from './Components/Learner_guide/Cactus';
 import Bills from './Components/Marketplace/Bills/Bills';
 import CreatePost from './Components/Home/CreatePost';
 import Profile from './Components/Profile/Profile'; // Import Profile component
+import Notifications from './Components/Notifications/Notifications'; // Import Notifications component
 import { AuthProvider } from './Context/AuthContext'; // Import AuthProvider
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path='/bills' element={<Bills orders={orders} />} />
         <Route path="/create-post" element={<CreatePost />} />
         <Route path="/profile" element={<Profile />} /> {/* Added Profile route */}
+        <Route path="/notifications" element={<Notifications />} /> {/* Added Notifications route */}
       </Routes>
     </AuthProvider>
   );
