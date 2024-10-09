@@ -1,0 +1,63 @@
+/* Guide_home.css */
+.home-1 {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.head{
+    text-align: center;
+    font-size: 45px !important;
+}
+.guides-1 {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* Ensures 3 cards per row */
+  width: 100%;
+  max-width: 1600px; /* Adjusted max-width for a wider layout */
+}
+
+.guide-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.guide-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%; /* Ensure card takes full width of its grid container */
+  max-width: 500px; /* Maximum width for individual cards */
+  margin: auto; /* Center the card horizontally */
+}
+
+.guide-card:hover {
+  transform: translateY(-5px);
+}
+
+.guide-image {
+  width: 100%;
+  height: 400px; /* Adjusted height for a larger image display */
+  object-fit: cover;
+}
+
+.guide-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.guide-content h3 {
+  margin: 0 0 10px;
+  font-size: 1.5em; /* Increased font size for the title */
+  color: #333;
+}
+
+.guide-content p {
+  font-size: 1.1em; /* Increased font size for the caption */
+  color: #666;
+  line-height: 1.6; /* Slightly increased line-height for better readability */
+}

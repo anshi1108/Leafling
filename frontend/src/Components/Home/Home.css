@@ -1,0 +1,137 @@
+.home-container {
+  display: flex;
+  flex-direction: column; /* Stack Navbar and content vertically */
+}
+
+.content {
+  display: flex; /* Use flexbox for sidebar and main content */
+  flex-grow: 1; /* Allow content to grow */
+}
+
+.sidebar {
+  width: 250px; /* Fixed width for sidebar */
+  background-color: #f4f4f4; /* Optional background */
+  transition: transform 0.3s ease; /* Smooth transition for show/hide */
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%); /* Hide sidebar */
+}
+
+.main-content {
+  flex-grow: 1; /* Allow main content to take the remaining space */
+  padding: 20px; /* Space around the main content */
+}
+
+.carousel {
+  height: 800px; /* Height of the carousel */
+  margin: 5px 0 15px; /* Margin top and bottom */
+  width: 90%; /* Carousel width */
+  margin-left: 4.5vw; /* Left margin */
+  border-radius: 25px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow */
+}
+
+.carousel-inner img {
+  height: 800px; /* Set the height */
+  opacity: 0.8; /* Image opacity */
+  object-fit: cover; /* Ensure image covers area */
+  width: 100%; /* Full width */
+}
+
+.carousel-caption {
+  text-align: left; /* Align text to the left */
+  left: 5%; /* Adjust left positioning */
+}
+
+.carousel-caption h5 {
+  color: #000; /* Text color */
+  font-weight: bold; /* Bold text */
+  font-size: 60px; /* Optional: font size */
+  font-weight: 700;
+}
+
+.carousel-caption p {
+  color: #000; /* Text color */
+  font-size: 35px; /* Font size */
+  font-weight: 500;
+}
+
+.btn-connect {
+  background-color: rgb(10, 96, 10); /* Button background */
+  color: #ffffff; /* Button text */
+  font-weight: 500;
+  font-size: 30px;
+  border: 1px solid #000; /* Button border */
+  padding: 1rem 2rem; /* Padding */
+  border-radius: 50px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+}
+
+.chatbot-popup {
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust positioning to center */
+  width: 500px; /* Set a width for the popup */
+  background-color: white; /* Background color */
+  border: 1px solid #ccc; /* Optional border */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for the popup */
+  z-index: 999; /* Ensure it's above other content */
+  border-radius: 20px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow */
+  padding: 20px; /* Optional padding inside the popup */
+}
+
+.close-chatbot-button {
+  margin: 10px; /* Add some margin */
+  padding: 5px 10px; /* Padding for the button */
+  background-color: #f44336; /* Red background for close */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Home.css */
+
+.home-container {
+  max-height: 100vh; /* Restricts the height to viewport height */
+  overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.carousel-section,
+.chatbot-popup{
+  max-height: 80vh; /* Adjust the height as needed */
+  overflow-y: auto; /* Enables scrolling within these sections if content overflows */
+}
+
+.chatbot-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1000;
+  max-height: 400px; /* Adjust this height as needed */
+  width: 300px;
+  overflow-y: auto; /* Allow scrolling inside the chatbot */
+}
+
+.close-chatbot-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+body {
+  overflow-y: auto; /* Ensures the body is scrollable */
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.homehr hr{
+  margin-top: 50px;
+  margin-bottom: 30px;
+}

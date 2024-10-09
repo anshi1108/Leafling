@@ -1,0 +1,49 @@
+/* Marketplace.css or ProductCard.css */
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 16px;
+  width: 200px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+.product-card img {
+  height: 150px;
+  width: 150px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.product-card .offer-price {
+  font-weight: bold;
+  color: #e74c3c; /* Color for the offer price */
+}
+
+.product-card .main-price {
+  font-weight: normal;
+  color: #999; /* Grey color for the original price */
+}
+
+.product-card .button-group {
+  display: flex;
+  justify-content: center; /* Center the buttons */
+  margin-top: 10px; /* Space above buttons */
+}
+
+.product-card button {
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  width: 40px; /* Fixed width for buttons */
+  margin: 0 5px; /* Spacing between buttons */
+}
+
+.product-card button:hover {
+  background-color: #bc46d1;
+}
