@@ -1,7 +1,7 @@
-// src/components/CreatePost.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './CreatePost.css'; // Import the CSS file
 
 const CreatePost = () => {
     const [newPost, setNewPost] = useState({
@@ -30,15 +30,10 @@ const CreatePost = () => {
 
     const addPost = async (newPostData) => {
         const formData = new FormData();
-        formData.append('author', newPostData.username); // Change from 'username' to 'author'
+        formData.append('author', newPostData.username);
         formData.append('title', newPostData.title);
         formData.append('image', newPostData.image);
-        formData.append('content', newPostData.caption); // Change from 'caption' to 'content'
-
-        // Log FormData contents
-        for (let [key, value] of formData.entries()) {
-            console.log(`${key}:`, value);
-        }
+        formData.append('content', newPostData.caption);
 
         try {
             const response = await axios.post('http://localhost:5000/api/posts', formData, {
@@ -48,7 +43,6 @@ const CreatePost = () => {
             });
 
             console.log('Post created successfully:', response.data);
-            // navigate('/'); // Redirect to the home page after successful post creation
         } catch (error) {
             console.error('Error adding post:', error);
         }
@@ -57,13 +51,13 @@ const CreatePost = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (newPost.username && newPost.title && newPost.image && newPost.caption) {
-            addPost(newPost); // Call addPost to send data to the backend
-            setNewPost({ username: '', title: '', image: null, caption: '' }); // Clear form inputs
+            addPost(newPost);
+            setNewPost({ username: '', title: '', image: null, caption: '' });
         }
     };
 
     return (
-        <div className="create-post">
+        <div className="create-post-container">
             <h3>Create a Post</h3>
             <form onSubmit={handleSubmit}>
                 <input
@@ -73,6 +67,7 @@ const CreatePost = () => {
                     onChange={handleInputChange}
                     placeholder="Enter your username"
                     required
+                    className="input-field"
                 />
                 <input
                     type="text"
@@ -81,6 +76,7 @@ const CreatePost = () => {
                     onChange={handleInputChange}
                     placeholder="Enter post title"
                     required
+                    className="input-field"
                 />
                 <input
                     type="file"
@@ -88,6 +84,7 @@ const CreatePost = () => {
                     onChange={handleImageChange}
                     accept="image/*"
                     required
+                    className="file-input"
                 />
                 {newPost.image && (
                     <div className="preview-image">
@@ -100,8 +97,9 @@ const CreatePost = () => {
                     onChange={handleInputChange}
                     placeholder="Enter your caption"
                     required
+                    className="textarea-field"
                 />
-                <button type="submit">Submit Post</button>
+                <button type="submit" className="submit-button">Submit Post</button>
             </form>
         </div>
     );
