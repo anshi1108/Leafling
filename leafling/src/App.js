@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Signup from './Components/Signup/Signup';
@@ -10,6 +9,7 @@ import Guide from './Components/Learner_guide/Guide_home';
 import Cactus from './Components/Learner_guide/Cactus';
 import Bills from './Components/Marketplace/Bills/Bills';
 import CreatePost from './Components/Home/CreatePost';
+import Profile from './Components/Profile/Profile'; // Import Profile component
 import { AuthProvider } from './Context/AuthContext'; // Import AuthProvider
 
 function App() {
@@ -31,6 +31,7 @@ function App() {
         <Route path='/cactus' element={<Cactus />} />
         <Route path='/bills' element={<Bills orders={orders} />} />
         <Route path="/create-post" element={<CreatePost />} />
+        <Route path="/profile" element={<Profile />} /> {/* Added Profile route */}
       </Routes>
     </AuthProvider>
   );
