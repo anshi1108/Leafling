@@ -1,0 +1,83 @@
+/* Notifications Page Styling */
+.container {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f9f4; /* Light plant-themed green background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 80%; /* Ensure the container stretches across the screen */
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    color: #28a745; /* Bright plant green */
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.header p {
+    color: #666;
+    font-size: 18px;
+}
+
+.notification-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+    gap: 20px; /* Space between the cards */
+}
+
+.card {
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #28a745; /* Green stripe for plant theme */
+    width: 480px; /* Card takes full width of the column */
+    min-height:150px ;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    color: #2e8b57; /* Darker green for titles */
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .notification-list {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .card-text {
+        font-size: 14px;
+    }
+}
