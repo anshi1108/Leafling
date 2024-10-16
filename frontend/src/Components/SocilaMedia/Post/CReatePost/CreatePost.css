@@ -1,0 +1,113 @@
+.create-post-container {
+    width: 66.66%;
+    /* Occupies two-thirds of the screen width */
+    margin: 0 auto;
+    margin-top: 70px;
+
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    /* Enables vertical scrolling */
+    max-height: 100vh;
+    /* Ensures the container doesn't extend out of the screen */
+    box-sizing: border-box;
+    /* Includes padding in width calculation */
+}
+
+h3 {
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.formpost form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field,
+.file-input,
+.textarea-field {
+    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-field {
+    height: 45px;
+}
+
+.input-field:focus,
+.file-input:focus,
+.textarea-field:focus {
+    border-color: #4caf50;
+}
+
+.textarea-field {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.preview-image {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.preview-image img {
+    max-width: 700px;
+    max-height: 600px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.submit-button,
+.clear-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.clear-button {
+    background-color: #f44336;
+    /* Red color for clear */
+    margin-left: 10px;
+    /* Adds space between the two buttons */
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+.clear-button:hover {
+    background-color: #d32f2f;
+}
+
+/* Button container to align buttons side by side */
+.button-group {
+    display: flex;
+    justify-content: flex-start;
+    /* Aligns buttons to the left */
+    margin-top: 15px;
+}
+
+/* Scrollable form container to ensure content is visible even with an image */
+.create-post {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 60px);
+    /* Limits form height to avoid overflow */
+    overflow-y: auto;
+    /* Enables scrolling within the form */
+    box-sizing: border-box;
+    /* Includes padding in height calculation */
+}

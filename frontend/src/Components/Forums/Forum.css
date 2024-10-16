@@ -1,0 +1,174 @@
+body {
+    background-color: #f5f8f5;
+    /* Light background */
+}
+
+.forum-container {
+    display: flex;
+    /* Flexbox for layout */
+}
+
+.forum-content {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.forum-card {
+    border: 1px solid #c1e1c5;
+    padding: 20px;
+}
+
+.forum-card-title {
+    color: #4a7c2b;
+    /* Darker green for titles */
+}
+
+.forum-interaction {
+    display: flex;
+    align-items: center;
+}
+
+.forum-profile-pic-small {
+    width: 30px;
+    /* Smaller profile picture */
+    height: 30px;
+    border-radius: 50%;
+}
+
+.forum-cactus-img-small {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.forum-advice-img-small {
+    width: 100%;
+    max-width: 500px;
+    /* Make the image responsive */
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 10px auto;
+    /* Center the advice image */
+}
+
+.forum-icon {
+    width: 20px;
+    /* Smaller size for like and comment icons */
+    height: 20px;
+    margin-right: 5px;
+    /* Space between icon and text */
+}
+
+.forum-comments-section {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+}
+
+.forum-comment {
+    margin: 5px 0;
+}
+
+.forum-no-comments {
+    color: #888;
+}
+
+.forum-chatbot-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.forum-close-chatbot-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.forum-sidebar {
+    position: sticky;
+    top: 0;
+    width: 250px;
+    /* Fixed width for sidebar */
+    height: calc(100vh - 100px);
+    /* Full height of the viewport minus navbar height */
+    overflow-y: auto;
+    padding: 20px;
+    /* Inner padding for content */
+    margin: 10px;
+    margin-left: 20px;
+    /* Increased margin to separate from content */
+    border-radius: 20px;
+    /* Rounded corners */
+    background-color: #d4ecd4;
+    /* Light green background */
+    z-index: 1;
+    /* Ensure sidebar is on top */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+.forum-sidebar h4 {
+    margin-bottom: 20px;
+    /* Space below the header */
+    font-family: 'Arial', sans-serif;
+    /* Font style for header */
+    color: #4a7c2b;
+    /* Darker green for sidebar text */
+    font-weight: bold;
+    /* Bold font for emphasis */
+}
+
+.forum-list-group-item {
+    padding: 10px 15px;
+    /* Padding for each item */
+    border: none;
+    /* Remove borders for a cleaner look */
+    border-radius: 10px;
+    /* Rounded corners for list items */
+    transition: background-color 0.3s;
+    /* Smooth transition for hover effect */
+}
+
+.forum-list-group-item:hover {
+    background-color: rgba(74, 124, 43, 0.1);
+    /* Light hover effect */
+}
+
+/* Add a class for a pretty icon */
+.forum-list-group-item span {
+    display: flex;
+    align-items: center;
+    /* Center icons with text */
+}
+
+.forum-list-group-item span img {
+    margin-right: 10px;
+    /* Space between icon and text */
+    width: 20px;
+    /* Fixed size for icons */
+    height: 20px;
+}
+
+/* Optional: Add a separator for a cleaner look */
+.forum-list-group-item:not(:last-child) {
+    border-bottom: 1px solid #c1e1c5;
+    /* Light separator line */
+}
+
+.forum-sidebar .list-group {
+    list-style-type: none;
+    /* Removes bullet points */
+    padding-left: 0;
+    /* Removes default padding */
+}

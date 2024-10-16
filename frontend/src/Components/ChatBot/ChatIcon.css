@@ -1,0 +1,23 @@
+/* src/components/ChatBot/ChatbotIcon.css */
+
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px; /* Position at the bottom */
+    right: 20px; /* Position at the right */
+    cursor: pointer; /* Change cursor to pointer */
+    z-index: 1000; /* Ensure it's above other content */
+    border-radius: 50%; /* Makes it circular */
+    background-color: rgb(206, 182, 182);
+    cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease;
+  padding: 10px;
+  border: 1px solid rgb(72, 72, 72);
+    
+  }
+  
+  .chatbot-icon img {
+    width: 60px; /* Adjust size as needed */
+    height: 60px; /* Adjust size as needed */
+
+  }
+  

@@ -1,0 +1,40 @@
+/* ProfileSidebar.css */
+
+/* Sidebar container */
+.sidebars {
+    background-color: white; /* White background for the sidebar */
+    border-right: 1px solid #dee2e6; /* Optional border for aesthetics */
+    height: 100vh; /* Full height */
+    width: 335px; /* Width of the sidebar */
+  }
+  
+  /* Nav link styling */
+  .nav-link {
+    font-size: 18px; /* Font size for the links */
+    padding: 10px 15px; /* Padding for the links */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+  }
+  
+  /* Active tab styling */
+  .active-tab {
+    background-color: #343a40; /* Dark background for active tab */
+    color: white; /* White text for active tab */
+  }
+  
+  /* Default text color */
+  .text-dark {
+    color: #212529; /* Default dark text color */
+  }
+  
+  /* Icon styling */
+  .icon {
+    margin-right: 10px; /* Space between icon and text */
+    color: #28a745; /* Green color for icons */
+  }
+  
+  /* Hover effect for nav links */
+  .nav-link:hover {
+    background-color: #f1f1f1; /* Light gray background on hover */
+  }
+  

@@ -1,0 +1,199 @@
+/* Container styling */
+.container {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e0f7e9 30%, #f0f9f4 100%), url('https://png.pngtree.com/png-clipart/20230111/ourmid/pngtree-plant-leaf-border-png-image_6544220.png');
+    background-size: cover;
+    /* Ensures background pattern covers entire section */
+    background-repeat: no-repeat;
+    /* No repetition of the background pattern */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    max-width: 85%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    height: 70vh;
+}
+
+/* Optional: Adding a faint plant or vine graphic in the background for flair */
+.container::before {
+    content: "🌿";
+    font-size: 200px;
+    color: rgba(40, 167, 69, 0.05);
+    /* Very faded green, almost transparent */
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    z-index: 0;
+    /* Puts this behind other content */
+}
+
+.container::after {
+    content: "🌸";
+    font-size: 150px;
+    color: rgba(255, 182, 193, 0.05);
+    /* Very faded pink for subtle floral touch */
+    position: absolute;
+    bottom: -60px;
+    right: -40px;
+    z-index: 0;
+}
+
+/* Header styling */
+.headers {
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+    /* Ensures the text appears above the background decorations */
+}
+
+.headers h1 {
+    color: #28a745;
+    /* Bright plant green */
+    font-weight: 800;
+    font-size: 38px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    letter-spacing: 2px;
+    /* Add some spacing between letters */
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.headers h1::after {
+    content: "🌱";
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: -55px;
+    /* Adding a playful plant emoji next to the title */
+}
+
+.headers p {
+    color: #555;
+    font-size: 15px;
+    margin-top: 5px;
+    position: relative;
+    z-index: 1;
+    /* Keeps this above the background elements */
+}
+
+/* Notification list styling */
+.notification-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Two equal-width columns */
+    gap: 10px;
+    /* Space between the cards */
+    position: relative;
+    z-index: 1;
+    /* Ensures it’s above background graphics */
+    margin-left: 10px;
+}
+
+/* Notification card styling */
+.card {
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+    border: none;
+    width: 600px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-left: 7px solid #28a745;
+    min-height: 100px;
+    cursor: pointer;
+    overflow: hidden;
+    /* Ensures child elements don’t overflow */
+    position: relative;
+    /* Allows child elements like icons or ribbons */
+    z-index: 1;
+}
+
+.card::before {
+    content: "🌿";
+    position: absolute;
+    font-size: 50px;
+    color: rgba(40, 167, 69, 0.15);
+    /* Faded leaf emoji for background effect */
+    top: -20px;
+    right: -20px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Card body */
+.card-body {
+    padding: 25px;
+}
+
+/* Title styling */
+.card-title {
+    color: #2e8b57;
+    /* Darker green for titles */
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.card-title::before {
+    content: "🌻";
+    position: absolute;
+    font-size: 20px;
+    left: -26px;
+    top: 0;
+}
+
+/* Subtitle (date) styling */
+.card-subtitle {
+    font-size: 18px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+/* Text styling */
+.card-text {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+/* Adding subtle animation for hover effects */
+.card-body p {
+    transition: color 0.3s ease;
+}
+
+.card-body:hover p {
+    color: #28a745;
+    /* Change text color on hover for added interaction */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .notification-list {
+        grid-template-columns: 1fr;
+        /* Single column on smaller screens */
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .card-text {
+        font-size: 14px;
+    }
+}
+
+
+.addspace {
+    margin-bottom: 70px;
+}
